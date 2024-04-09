@@ -43,32 +43,24 @@ document
     console.log(message);
   });
 
-let newComment = document.querySelector("#comment0").cloneNode(true);
+let targetBox = document.querySelector("#comment0");
+let cloneComment = targetBox.cloneNode(true);
+let addComment = document.querySelector(".comments_face .comments");
+let newComment = document.querySelector(".add_comment");
+let publishComment = document.querySelector(".comments_face .publish_comment");
+let commentTxt = document.querySelector(".add_comment textarea");
+let custom = document.querySelectorAll(".comments")[1];
 
-document
-  .querySelector(".comments_face .comments")
-  .addEventListener("click", function () {
-    document.querySelector(".comments_face .add_comment").style.display =
-      "block";
-  });
+addComment.addEventListener("click", function () {
+  newComment.style.display = "block";
+});
 
-document
-  .querySelector(".comments_face .publish_comment")
-  .addEventListener("click", function () {
-    console.log(document.querySelector(".add_comment textarea").value);
-    newComment.querySelector(".name font font").innerHTML = "Anonim";
-    newComment.querySelectorAll(".comment-content p")[1].innerHTML =
-      document.querySelector(".add_comment textarea").value;
-    document
-      .querySelector(".add_comment")
-      .insertBefore(
-        newComment,
-        document.querySelector(".add_comment").nextSibling
-      );
-    document
-      .querySelector(".comments_face .comments")
-      .addEventListener("click", function () {});
-    document.querySelector(".comments_face .add_comment").style.display =
-      "none";
-    document.querySelector(".add_comment textarea").value = "";
-  });
+publishComment.addEventListener("click", function () {
+  cloneComment.querySelector(".name font font").innerHTML = "Anonim";
+  cloneComment.querySelectorAll(".comment-content p")[1].innerHTML =
+    commentTxt.value;
+  console.log(custom);
+  addComment.parentNode.insertBefore(cloneComment, custom.previousSibling);
+  document.querySelector(".comments_face .add_comment").style.display = "none";
+  commentTxt.value = "";
+});
