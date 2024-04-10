@@ -1,0 +1,17 @@
+.add_comment {
+  background-color: #eeeff4;
+  padding: 10px;
+  border-bottom: 2px solid #fff;
+}
+textarea {
+  background-color: #eeeff4;
+  resize: none;
+  width: 100%;
+  margin-bottom: 5px;
+}
+.publish_comment {
+  display: block;
+  background-color: aqua;
+  border: 1px solid #0f0f0f;
+  border-radius: 4px;
+}
